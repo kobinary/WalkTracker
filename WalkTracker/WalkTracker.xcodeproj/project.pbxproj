@@ -15,6 +15,8 @@
 		4C6CC1792226F83E00EEB94B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1782226F83E00EEB94B /* HomeViewController.swift */; };
 		4C6CC17B2226F87900EEB94B /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC17A2226F87900EEB94B /* HomeManager.swift */; };
 		4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */; };
+		4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1802226F99A00EEB94B /* TrackerManager.swift */; };
+		4C6CC1832226F9E400EEB94B /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4C6CC1782226F83E00EEB94B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4C6CC17A2226F87900EEB94B /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
+		4C6CC1802226F99A00EEB94B /* TrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerManager.swift; sourceTree = "<group>"; };
+		4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 		4C6CC1772226F7B200EEB94B /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				4C6CC1802226F99A00EEB94B /* TrackerManager.swift */,
+				4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */,
 			);
 			path = Tracker;
 			sourceTree = "<group>";
@@ -195,7 +201,9 @@
 				4C6CC17B2226F87900EEB94B /* HomeManager.swift in Sources */,
 				4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */,
 				4C6CC15F2226F60200EEB94B /* ViewController.swift in Sources */,
+				4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */,
 				4C6CC15D2226F60200EEB94B /* AppDelegate.swift in Sources */,
+				4C6CC1832226F9E400EEB94B /* TrackerViewController.swift in Sources */,
 				4C6CC1792226F83E00EEB94B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
