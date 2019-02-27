@@ -19,6 +19,7 @@
 		4C6CC1832226F9E400EEB94B /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */; };
 		4C6CC1862226FD3500EEB94B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1852226FD3500EEB94B /* LocationManager.swift */; };
 		4C6CC1892226FEA100EEB94B /* TrackerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */; };
+		4C6CC18B2227001A00EEB94B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC18A2227001A00EEB94B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		4C6CC1852226FD3500EEB94B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewCell.swift; sourceTree = "<group>"; };
+		4C6CC18A2227001A00EEB94B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */,
+				4C6CC18A2227001A00EEB94B /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				4C6CC15F2226F60200EEB94B /* ViewController.swift in Sources */,
 				4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */,
 				4C6CC1862226FD3500EEB94B /* LocationManager.swift in Sources */,
+				4C6CC18B2227001A00EEB94B /* Constants.swift in Sources */,
 				4C6CC15D2226F60200EEB94B /* AppDelegate.swift in Sources */,
 				4C6CC1832226F9E400EEB94B /* TrackerViewController.swift in Sources */,
 				4C6CC1892226FEA100EEB94B /* TrackerViewCell.swift in Sources */,
