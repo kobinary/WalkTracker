@@ -17,6 +17,8 @@
 		4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */; };
 		4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1802226F99A00EEB94B /* TrackerManager.swift */; };
 		4C6CC1832226F9E400EEB94B /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */; };
+		4C6CC1862226FD3500EEB94B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1852226FD3500EEB94B /* LocationManager.swift */; };
+		4C6CC1892226FEA100EEB94B /* TrackerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
 		4C6CC1802226F99A00EEB94B /* TrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerManager.swift; sourceTree = "<group>"; };
 		4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
+		4C6CC1852226FD3500EEB94B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		4C6CC1722226F68700EEB94B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C6CC1842226FD1F00EEB94B /* Location */,
 				4C6CC1752226F6B100EEB94B /* Home */,
 				4C6CC1772226F7B200EEB94B /* Tracker */,
 				4C6CC1732226F69100EEB94B /* Flickr */,
@@ -121,10 +126,27 @@
 		4C6CC1772226F7B200EEB94B /* Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				4C6CC1802226F99A00EEB94B /* TrackerManager.swift */,
 				4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */,
+				4C6CC1802226F99A00EEB94B /* TrackerManager.swift */,
+				4C6CC1872226FE8A00EEB94B /* Cell */,
 			);
 			path = Tracker;
+			sourceTree = "<group>";
+		};
+		4C6CC1842226FD1F00EEB94B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				4C6CC1852226FD3500EEB94B /* LocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		4C6CC1872226FE8A00EEB94B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,8 +224,10 @@
 				4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */,
 				4C6CC15F2226F60200EEB94B /* ViewController.swift in Sources */,
 				4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */,
+				4C6CC1862226FD3500EEB94B /* LocationManager.swift in Sources */,
 				4C6CC15D2226F60200EEB94B /* AppDelegate.swift in Sources */,
 				4C6CC1832226F9E400EEB94B /* TrackerViewController.swift in Sources */,
+				4C6CC1892226FEA100EEB94B /* TrackerViewCell.swift in Sources */,
 				4C6CC1792226F83E00EEB94B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

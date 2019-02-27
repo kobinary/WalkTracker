@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class TrackerManager: NSObject {
 
@@ -39,4 +40,19 @@ class TrackerManager: NSObject {
         controller.navigationItem.setHidesBackButton(true, animated:true);
     }
     
+    // MARK: Location
+    
+    func startWalk() {
+        controller.distance = Measurement(value: 0, unit: UnitLength.meters)
+        controller.locationList.removeAll()
+        startLocationUpdates()
+    }
+    
+    private func startLocationUpdates() {
+        controller.locationManager.delegate = controller
+        controller.locationManager.activityType = .fitness
+        controller.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        controller.locationManager.startUpdatingLocation()
+        controller.locationManager.allowsBackgroundLocationUpdates = true
+    }
 }

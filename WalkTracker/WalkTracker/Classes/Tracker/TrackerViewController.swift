@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 private let reuseIdentifier = "TrackerViewCell"
 
@@ -15,6 +16,9 @@ class TrackerViewController: UICollectionViewController {
     // MARK: Properties
     
     var manager : TrackerManager!
+    let locationManager = LocationManager.shared
+    var distance = Measurement(value: 0, unit: UnitLength.meters)
+    var locationList: [CLLocation] = []
     
     // MARK: Setups
     
@@ -23,11 +27,22 @@ class TrackerViewController: UICollectionViewController {
         manager = TrackerManager(controller: self)
         manager.setupView()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManager.stopUpdatingLocation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
 }
+
+// MARK: UICollectionViewDataSource
 
 extension TrackerViewController {
     
-    // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -41,6 +56,28 @@ extension TrackerViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         return cell
     }
+}
+
+// MARK: Location Manager Delegate
+
+extension TrackerViewController: CLLocationManagerDelegate {
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        for newLocation in locations {
+            let howRecent = newLocation.timestamp.timeIntervalSinceNow
+            guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
+            
+            if let lastLocation = locationList.last {
+                let delta = newLocation.distance(from: lastLocation)
+                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                
+                if distance > Measurement(value: 100, unit: UnitLength.meters){
+                    // TO DO : Fetch Flickr Photo
+                }
+            }
+            locationList.append(newLocation)
+        }
+    }
 }
 
