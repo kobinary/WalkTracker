@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbE-46-vU4">
-                                <rect key="frame" x="176.5" y="322.5" width="22" height="22"/>
+                                <rect key="frame" x="140" y="286" width="95" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cbE-46-vU4" secondAttribute="height" multiplier="1:1" id="3MK-pz-nTE"/>
                                 </constraints>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startWalk" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-Qo-7A4">
-                                <rect key="frame" x="179.5" y="192" width="16" height="16"/>
+                                <rect key="frame" x="106" y="160.5" width="163" height="79"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signature" translatesAutoresizingMaskIntoConstraints="NO" id="yOI-iv-EHm">
                                 <rect key="frame" x="140" y="636" width="93" height="10"/>
@@ -59,7 +59,7 @@
         <!--Tracker View Controller-->
         <scene sceneID="uaj-ld-OVX">
             <objects>
-                <collectionViewController id="CQB-ob-7MS" customClass="TrackerViewController" customModule="TrackingAppByPhotos" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="CQB-ob-7MS" customClass="TrackerViewController" customModule="WalkTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="reT-mb-x1M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,7 @@
                                     <constraint firstAttribute="trailing" secondItem="E5c-jQ-sO1" secondAttribute="trailing" id="nBQ-NR-73i"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="E5c-jQ-sO1" id="UdA-O2-iT8"/>
+                                    <outlet property="imageView" destination="E5c-jQ-sO1" id="gre-cd-iqy"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -134,8 +134,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="signature" width="16" height="16"/>
-        <image name="startWalk" width="16" height="16"/>
-        <image name="startWorkout" width="16" height="16"/>
+        <image name="signature" width="136" height="15"/>
+        <image name="startWalk" width="163" height="79"/>
+        <image name="startWorkout" width="95" height="95"/>
     </resources>
 </document>

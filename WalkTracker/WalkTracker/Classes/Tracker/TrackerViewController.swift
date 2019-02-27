@@ -37,6 +37,14 @@ class TrackerViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         collectionView.reloadData()
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func stopTapped(_ sender: Any) {
+        locationManager.stopUpdatingLocation()
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -53,7 +61,7 @@ extension TrackerViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TrackerViewCell
         return cell
     }
 }
