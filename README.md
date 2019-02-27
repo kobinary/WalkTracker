@@ -11,3 +11,7 @@ Features:
 - Shows latest photo on the first position of the CollectionView.
 - Background location updates.
 - Stop workout.
+
+Extra Features:
+
+- Added GPX file to simulate a small walk on a device.
