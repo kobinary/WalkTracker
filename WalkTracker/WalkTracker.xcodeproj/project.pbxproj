@@ -23,6 +23,7 @@
 		4C6CC1912228033E00EEB94B /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1902228033E00EEB94B /* FlickrPhoto.swift */; };
 		4C6CC1932228037300EEB94B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1922228037300EEB94B /* Result.swift */; };
 		4C6CC196222805EB00EEB94B /* countryside_walk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CC195222805EB00EEB94B /* countryside_walk.gpx */; };
+		4C6CC19822280DD500EEB94B /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC19722280DD500EEB94B /* Logs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4C6CC1902228033E00EEB94B /* FlickrPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		4C6CC1922228037300EEB94B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4C6CC195222805EB00EEB94B /* countryside_walk.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countryside_walk.gpx; sourceTree = "<group>"; };
+		4C6CC19722280DD500EEB94B /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */,
 				4C6CC18A2227001A00EEB94B /* Constants.swift */,
+				4C6CC19722280DD500EEB94B /* Logs.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				4C6CC1932228037300EEB94B /* Result.swift in Sources */,
 				4C6CC1912228033E00EEB94B /* FlickrPhoto.swift in Sources */,
 				4C6CC18D222704AD00EEB94B /* FlickrManager.swift in Sources */,
+				4C6CC19822280DD500EEB94B /* Logs.swift in Sources */,
 				4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */,
 				4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */,
 				4C6CC1862226FD3500EEB94B /* LocationManager.swift in Sources */,
