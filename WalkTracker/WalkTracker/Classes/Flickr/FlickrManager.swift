@@ -9,9 +9,7 @@
 import UIKit
 import CoreLocation
 
-class FlickrManager: NSObject {
-
-    // Generate API URL Request
+class FlickrManager {
     
     func flickrURLFromParameters(lat: CLLocationDegrees, lon: CLLocationDegrees) -> URL {
         
@@ -21,9 +19,11 @@ class FlickrManager: NSObject {
         components.host = Constants.FlickrURLParams.APIHost
         components.path = Constants.FlickrURLParams.APIPath
         
-        // Build query components
+        // Build query string
         components.queryItems = [URLQueryItem]()
-                components.queryItems!.append(URLQueryItem(name: Constants.FlickrAPIKeys.APIKey, value: Constants.FlickrAPIValues.APIKey))
+        
+        // Query components
+        components.queryItems!.append(URLQueryItem(name: Constants.FlickrAPIKeys.APIKey, value: Constants.FlickrAPIValues.APIKey))
         components.queryItems!.append(URLQueryItem(name: Constants.FlickrAPIKeys.SearchMethod, value: Constants.FlickrAPIValues.SearchMethod))
         components.queryItems!.append(URLQueryItem(name: Constants.FlickrAPIKeys.ResponseFormat, value: Constants.FlickrAPIValues.ResponseFormat))
         components.queryItems!.append(URLQueryItem(name: Constants.FlickrAPIKeys.Extras, value: Constants.FlickrAPIValues.MediumURL))
@@ -38,9 +38,7 @@ class FlickrManager: NSObject {
         return components.url!
     }
     
-    // Fetch Flickr photo and parse into a FlickrPhoto model.
-    
-    func fetchFlickrPhoto(_ searchURL: URL, index: Int, completion: @escaping (UIImage) -> Void) {
+    func fetchFlickrPhoto(_ searchURL: URL, index: Int, completion: @escaping (Result<FlickrPhoto>) -> Void) {
         
         let session = URLSession.shared
         let request = URLRequest(url: searchURL)
@@ -48,58 +46,73 @@ class FlickrManager: NSObject {
         let task = session.dataTask(with: request) {
             (data, response, error) in
             if (error == nil) {
-              
+                
                 // Check response code
                 let status = (response as! HTTPURLResponse).statusCode
                 if (status < 200 || status > 300) {
-                    // Error
+                    completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                 }
                 
-                // Check response data
+                // Check data returned
                 guard let data = data else {
-                    // Error
+                    completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                     return
                 }
                 
-                // Parse the data
+                // Parse the Data
                 let parsedResult: [String:AnyObject]!
                 do {
-                    parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
+                    parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:AnyObject]
                 } catch {
-                    // Error
+                    completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                     return
                 }
                 
+                // Check for Photos
                 guard let photosDictionary = parsedResult["photos"] as? [String:AnyObject] else {
-                    // Error
+                    completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                     return
                 }
+                
+                print(photosDictionary)
                 
                 guard let photosArray = photosDictionary["photo"] as? [[String: AnyObject]] else {
-                    // Error
+                    completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                     return
                 }
                 
-                // Check photos
+                // Check if there is coming any Photo
                 if photosArray.count == 0 {
-                    // Error
+                    completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                 } else {
                     let photoDictionary = photosArray[0] as [String: AnyObject]
                     guard
                         let imageUrlString = photoDictionary["url_m"] as? String,
                         let photoID = photoDictionary["id"] as? String else {
-                            // Error
+                            completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                             return
                     }
                     
-                    // Success
-                    // TO DO ....
+                    // Return an avaliable Flickr Photo
+                    let flickrPhoto = FlickrPhoto.init(photoID: photoID, imageURL: imageUrlString, index: index)
+                    flickrPhoto.loadImage(loadURL: imageUrlString, completion: { (photo) in
+                        completion(photo)
+                    })
                 }
             }
             else {
-                // Error
+                completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
             }
         }
         task.resume()
+    }
+    
+    // Return an NON avaliable Flickr Photo
+    
+    func loadNoAvailablePhoto(searchURL: URL, index: Int) -> FlickrPhoto {
+        let photoID = "noPhoto_" + "\(searchURL)_" + UUID().uuidString
+        let flickrPhoto = FlickrPhoto.init(photoID: photoID, imageURL: "", index: index)
+        flickrPhoto.largeImage = UIImage(named: "noPhoto.png")
+        return flickrPhoto
     }
 }

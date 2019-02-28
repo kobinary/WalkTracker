@@ -14,7 +14,8 @@ class TrackerManager: NSObject {
     // MARK: Properties
     
     var controller : TrackerViewController!
-    
+    var flickrManager = FlickrManager()
+
     // MARK: Init
     
     override init() {
@@ -54,5 +55,37 @@ class TrackerManager: NSObject {
         controller.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         controller.locationManager.startUpdatingLocation()
         controller.locationManager.allowsBackgroundLocationUpdates = true
+    }
+
+    // MARK: Load Photos
+    
+    func fetchPhotoByLocation(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+        
+        let searchURL = flickrManager.flickrURLFromParameters(lat: lat, lon: lon)
+        
+        flickrManager.fetchFlickrPhoto(searchURL, index: controller.photos.count) { (results) in
+            switch results {
+            case .error(let error) :
+                print("Error Fetching Photo: \(error)")
+            case .results(let flickrPhoto):
+                self.controller.photos.append(flickrPhoto)
+                self.controller.photos = self.controller.photos.sorted(by: { $0.index > $1.index })
+            }
+            self.reloadContent()
+        }
+    }
+    
+    func loadWalkStartedImage() {
+        let flickrPhoto = FlickrPhoto.init(photoID: "walkStarted", imageURL: "", index: 0, image: UIImage(named: "walkStarted.png")!)
+        controller.photos.append(flickrPhoto)
+        reloadContent()
+    }
+    
+    // MARK: Reload CollectionView
+    
+    func reloadContent() {
+        DispatchQueue.main.async {
+            self.controller.collectionView?.reloadData()
+        }
     }
 }

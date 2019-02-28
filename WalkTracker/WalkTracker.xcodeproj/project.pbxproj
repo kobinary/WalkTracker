@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C6CC15D2226F60200EEB94B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC15C2226F60200EEB94B /* AppDelegate.swift */; };
-		4C6CC15F2226F60200EEB94B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC15E2226F60200EEB94B /* ViewController.swift */; };
 		4C6CC1622226F60200EEB94B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CC1602226F60200EEB94B /* Main.storyboard */; };
 		4C6CC1672226F60500EEB94B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CC1662226F60500EEB94B /* Assets.xcassets */; };
 		4C6CC16A2226F60500EEB94B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CC1682226F60500EEB94B /* LaunchScreen.storyboard */; };
@@ -21,12 +20,14 @@
 		4C6CC1892226FEA100EEB94B /* TrackerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */; };
 		4C6CC18B2227001A00EEB94B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC18A2227001A00EEB94B /* Constants.swift */; };
 		4C6CC18D222704AD00EEB94B /* FlickrManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC18C222704AD00EEB94B /* FlickrManager.swift */; };
+		4C6CC1912228033E00EEB94B /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1902228033E00EEB94B /* FlickrPhoto.swift */; };
+		4C6CC1932228037300EEB94B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1922228037300EEB94B /* Result.swift */; };
+		4C6CC196222805EB00EEB94B /* countryside_walk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CC195222805EB00EEB94B /* countryside_walk.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C6CC1592226F60200EEB94B /* WalkTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6CC15C2226F60200EEB94B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C6CC15E2226F60200EEB94B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4C6CC1612226F60200EEB94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C6CC1662226F60500EEB94B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C6CC1692226F60500EEB94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +41,9 @@
 		4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewCell.swift; sourceTree = "<group>"; };
 		4C6CC18A2227001A00EEB94B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C6CC18C222704AD00EEB94B /* FlickrManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrManager.swift; sourceTree = "<group>"; };
+		4C6CC1902228033E00EEB94B /* FlickrPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
+		4C6CC1922228037300EEB94B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4C6CC195222805EB00EEB94B /* countryside_walk.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countryside_walk.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,7 @@
 				4C6CC1722226F68700EEB94B /* Classes */,
 				4C6CC15C2226F60200EEB94B /* AppDelegate.swift */,
 				4C6CC1712226F65000EEB94B /* Storyboards */,
-				4C6CC1662226F60500EEB94B /* Assets.xcassets */,
+				4C6CC194222805DC00EEB94B /* Resources */,
 				4C6CC16B2226F60500EEB94B /* Info.plist */,
 			);
 			path = WalkTracker;
@@ -98,7 +102,6 @@
 				4C6CC1772226F7B200EEB94B /* Tracker */,
 				4C6CC1732226F69100EEB94B /* Flickr */,
 				4C6CC1742226F6A100EEB94B /* Helpers */,
-				4C6CC15E2226F60200EEB94B /* ViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -107,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				4C6CC18C222704AD00EEB94B /* FlickrManager.swift */,
+				4C6CC1902228033E00EEB94B /* FlickrPhoto.swift */,
+				4C6CC1922228037300EEB94B /* Result.swift */,
 			);
 			path = Flickr;
 			sourceTree = "<group>";
@@ -153,6 +158,15 @@
 				4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4C6CC194222805DC00EEB94B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C6CC195222805EB00EEB94B /* countryside_walk.gpx */,
+				4C6CC1662226F60500EEB94B /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6CC196222805EB00EEB94B /* countryside_walk.gpx in Resources */,
 				4C6CC16A2226F60500EEB94B /* LaunchScreen.storyboard in Resources */,
 				4C6CC1672226F60500EEB94B /* Assets.xcassets in Resources */,
 				4C6CC1622226F60200EEB94B /* Main.storyboard in Resources */,
@@ -227,9 +242,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C6CC17B2226F87900EEB94B /* HomeManager.swift in Sources */,
+				4C6CC1932228037300EEB94B /* Result.swift in Sources */,
+				4C6CC1912228033E00EEB94B /* FlickrPhoto.swift in Sources */,
 				4C6CC18D222704AD00EEB94B /* FlickrManager.swift in Sources */,
 				4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */,
-				4C6CC15F2226F60200EEB94B /* ViewController.swift in Sources */,
 				4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */,
 				4C6CC1862226FD3500EEB94B /* LocationManager.swift in Sources */,
 				4C6CC18B2227001A00EEB94B /* Constants.swift in Sources */,

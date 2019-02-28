@@ -36,7 +36,7 @@ struct Constants {
     struct FlickrAPIValues {
         static let SearchMethod = "flickr.photos.search"
         static let APIKey = "f36327ec313fd49c1951ea714cbc2910"
-        static let Radius = "0.01"
+        static let Radius = "0.05"
         static let Per_page = "1"
         static let Page = "1"
         static let ResponseFormat = "json"

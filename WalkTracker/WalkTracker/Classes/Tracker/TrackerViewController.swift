@@ -19,6 +19,7 @@ class TrackerViewController: UICollectionViewController {
     let locationManager = LocationManager.shared
     var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
+    var photos : [FlickrPhoto] = []
     
     // MARK: Setups
     
@@ -26,6 +27,7 @@ class TrackerViewController: UICollectionViewController {
         super.viewDidLoad()
         manager = TrackerManager(controller: self)
         manager.setupView()
+        manager.startWalk()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,11 +59,12 @@ extension TrackerViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return photos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TrackerViewCell
+        cell.imageView.image = photos[indexPath.row].largeImage
         return cell
     }
 }
@@ -72,7 +75,15 @@ extension TrackerViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        if let firtsLocation = locations.first, locationList.count == 0 {
+            self.manager.loadWalkStartedImage()
+            locationList.append(firtsLocation)
+        }
+        
         for newLocation in locations {
+            
+            print(newLocation)
+            
             let howRecent = newLocation.timestamp.timeIntervalSinceNow
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
             
@@ -80,8 +91,14 @@ extension TrackerViewController: CLLocationManagerDelegate {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
                 
-                if distance > Measurement(value: 100, unit: UnitLength.meters){
-                    // TO DO : Fetch Flickr Photo
+                /**
+                 Value:  It is the trigger value to fetch photos from Flickr API.
+                 Start on 100m and increase by 100 every time a photo is added.
+                 **/
+                let value = Double(30 * ((self.photos.count - 1) + 1))
+                
+                if distance > Measurement(value: value, unit: UnitLength.meters){
+                    self.manager.fetchPhotoByLocation(lat: newLocation.coordinate.latitude, lon:newLocation.coordinate.longitude )
                 }
             }
             locationList.append(newLocation)
