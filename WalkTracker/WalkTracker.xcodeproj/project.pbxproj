@@ -20,6 +20,7 @@
 		4C6CC1862226FD3500EEB94B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1852226FD3500EEB94B /* LocationManager.swift */; };
 		4C6CC1892226FEA100EEB94B /* TrackerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */; };
 		4C6CC18B2227001A00EEB94B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC18A2227001A00EEB94B /* Constants.swift */; };
+		4C6CC18D222704AD00EEB94B /* FlickrManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC18C222704AD00EEB94B /* FlickrManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4C6CC1852226FD3500EEB94B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4C6CC1882226FEA100EEB94B /* TrackerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewCell.swift; sourceTree = "<group>"; };
 		4C6CC18A2227001A00EEB94B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4C6CC18C222704AD00EEB94B /* FlickrManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		4C6CC1732226F69100EEB94B /* Flickr */ = {
 			isa = PBXGroup;
 			children = (
+				4C6CC18C222704AD00EEB94B /* FlickrManager.swift */,
 			);
 			path = Flickr;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C6CC17B2226F87900EEB94B /* HomeManager.swift in Sources */,
+				4C6CC18D222704AD00EEB94B /* FlickrManager.swift in Sources */,
 				4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */,
 				4C6CC15F2226F60200EEB94B /* ViewController.swift in Sources */,
 				4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */,
