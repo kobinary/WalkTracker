@@ -54,6 +54,7 @@ class TrackerManager: NSObject {
         controller.locationManager.activityType = .fitness
         controller.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         controller.locationManager.startUpdatingLocation()
+        controller.locationManager.distanceFilter = 30
         controller.locationManager.allowsBackgroundLocationUpdates = true
     }
 

@@ -81,15 +81,14 @@ extension TrackerViewController: CLLocationManagerDelegate {
         }
         
         for newLocation in locations {
-            
-            print(newLocation)
-            
+                        
             let howRecent = newLocation.timestamp.timeIntervalSinceNow
             guard newLocation.horizontalAccuracy < 20 && abs(howRecent) < 10 else { continue }
             
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
                 distance = distance + Measurement(value: delta, unit: UnitLength.meters)
+                print("distance:", distance)
                 
                 /**
                  Value:  It is the trigger value to fetch photos from Flickr API.
