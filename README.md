@@ -4,9 +4,10 @@ Walk tracking by showing a photo from a specific location.
 
 Features:
 
-- Start workout.
-- Every 100 meters shows up a flicker's photo from thata location (lat/long).
-- Fetch photo from Flickr API.
+- Start walk with a message is shown.
+- Every 100 meters shows up a flicker's photo from that location (lat/long) if avaliable.
+- If there isn't an avaliable Flickr photo a non photo message is shown.
+- Fetch photo from Flickr API if it is avaliable for that location.
 - Add photo to the app CollectionView.
 - Shows latest photo on the first position of the CollectionView.
 - Background location updates.
