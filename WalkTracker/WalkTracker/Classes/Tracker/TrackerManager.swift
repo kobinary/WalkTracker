@@ -32,8 +32,7 @@ class TrackerManager {
     }
     
     func loadWalkStartedImage(completion: @escaping (FlickrPhoto) -> Void) {
-        let flickrPhoto = FlickrPhoto.init(photoID: "walkStarted", imageURL: "", index: 0, image: UIImage(named: "walkStarted.png")!)
-        completion(flickrPhoto)
+        completion(FlickrPhoto.init(photoID: "walkStarted", imageURL: "", index: 0, image: UIImage(named: "walkStarted.png")!))
     }
 
 }

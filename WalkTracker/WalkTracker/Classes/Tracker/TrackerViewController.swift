@@ -16,11 +16,11 @@ class TrackerViewController: UICollectionViewController {
     // MARK: Properties
     
     private let locationManager = LocationManager.shared
+    private let trackerManager = TrackerManager()
+
     private var distance = Measurement(value: 0, unit: UnitLength.meters)
     private var locationList: [CLLocation] = []
     private var photos : [FlickrPhoto] = []
-    
-    var trackerManager = TrackerManager()
     
     // MARK: Setups
     
@@ -110,6 +110,7 @@ extension TrackerViewController: CLLocationManagerDelegate {
         if let firtsLocation = locations.first, locationList.count == 0 {
             trackerManager.loadWalkStartedImage() { (flickrPhoto) in
                 self.photos.append(flickrPhoto)
+                self.reloadContent()
             }
             locationList.append(firtsLocation)
         }
