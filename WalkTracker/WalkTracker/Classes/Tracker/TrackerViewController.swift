@@ -17,18 +17,26 @@ class TrackerViewController: UICollectionViewController {
     
     private let locationManager = LocationManager.shared
     private var distance = Measurement(value: 0, unit: UnitLength.meters)
+    private var locationList: [CLLocation] = []
+    private var photos : [FlickrPhoto] = []
     
-    var manager : TrackerManager!
-    var locationList: [CLLocation] = []
-    var photos : [FlickrPhoto] = []
+    var trackerManager = TrackerManager()
     
     // MARK: Setups
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager = TrackerManager(controller: self)
-        manager.setupView()
+        setupView()
         startWalk()
+    }
+    
+    func setupView() {
+        setupNavigationItems()
+    }
+    
+    private func setupNavigationItems() {
+        navigationItem.titleView = LogoHelper().setupLogo()
+        navigationItem.setHidesBackButton(true, animated:true);
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -76,6 +84,12 @@ extension TrackerViewController {
         cell.imageView.image = photos[indexPath.row].largeImage
         return cell
     }
+    
+    private func reloadContent() {
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+        }
+    }
 }
 
 // MARK: Location Manager Delegate
@@ -94,7 +108,9 @@ extension TrackerViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if let firtsLocation = locations.first, locationList.count == 0 {
-            self.manager.loadWalkStartedImage()
+            trackerManager.loadWalkStartedImage() { (flickrPhoto) in
+                self.photos.append(flickrPhoto)
+            }
             locationList.append(firtsLocation)
         }
         
@@ -118,12 +134,17 @@ extension TrackerViewController: CLLocationManagerDelegate {
                 let value = Double(100 * ((self.photos.count - 1) + 1))
                 pLog("value is \(value)")
 
-                if distance > Measurement(value: value, unit: UnitLength.meters){
-                    self.manager.fetchPhotoByLocation(lat: newLocation.coordinate.latitude, lon:newLocation.coordinate.longitude )
+                if distance > Measurement(value: value, unit: UnitLength.meters) {
+                    trackerManager.fetchPhotoByLocation(lat: newLocation.coordinate.latitude, lon:newLocation.coordinate.longitude, photos: self.photos) { (flickrPhoto) in
+                        self.photos.append(flickrPhoto)
+                        _ = self.photos.sorted(by: { $0.index > $1.index })
+                        self.reloadContent()
+                    }
                 }
             }
             locationList.append(newLocation)
         }
     }
 }
+
 
