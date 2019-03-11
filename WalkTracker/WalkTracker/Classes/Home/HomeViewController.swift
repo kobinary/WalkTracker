@@ -9,16 +9,19 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    // MARK: Properties
-    
-    var manager : HomeManager!
     
     // MARK: Setups
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager = HomeManager(controller: self)
-        manager.setupView()
+        setupView()
+    }
+    
+    private func setupView() {
+        setupNavigationItems()
+    }
+    
+    private func setupNavigationItems() {
+        navigationItem.titleView = LogoHelper().setupLogo()
     }
 }

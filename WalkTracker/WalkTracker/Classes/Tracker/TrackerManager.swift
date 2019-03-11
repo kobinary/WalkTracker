@@ -9,18 +9,14 @@
 import UIKit
 import CoreLocation
 
-class TrackerManager: NSObject {
+class TrackerManager {
 
     // MARK: Properties
     
-    var controller : TrackerViewController!
-    var flickrManager = FlickrManager()
+    private let controller : TrackerViewController!
+    private let flickrManager = FlickrManager()
 
     // MARK: Init
-    
-    override init() {
-        super.init()
-    }
     
     init(controller: TrackerViewController) {
         self.controller = controller
@@ -36,28 +32,11 @@ class TrackerManager: NSObject {
         setupNavigationItems()
     }
     
-    func setupNavigationItems() {
+    private func setupNavigationItems() {
         controller.navigationItem.titleView = LogoHelper().setupLogo()
         controller.navigationItem.setHidesBackButton(true, animated:true);
     }
     
-    // MARK: Location
-    
-    func startWalk() {
-        controller.distance = Measurement(value: 0, unit: UnitLength.meters)
-        controller.locationList.removeAll()
-        startLocationUpdates()
-    }
-    
-    private func startLocationUpdates() {
-        controller.locationManager.delegate = controller
-        controller.locationManager.activityType = .fitness
-        controller.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        controller.locationManager.startUpdatingLocation()
-        controller.locationManager.distanceFilter = 50
-        controller.locationManager.allowsBackgroundLocationUpdates = true
-    }
-
     // MARK: Load Photos
     
     func fetchPhotoByLocation(lat: CLLocationDegrees, lon: CLLocationDegrees) {
@@ -84,7 +63,7 @@ class TrackerManager: NSObject {
     
     // MARK: Reload CollectionView
     
-    func reloadContent() {
+    private func reloadContent() {
         DispatchQueue.main.async {
             self.controller.collectionView?.reloadData()
         }

@@ -15,9 +15,10 @@ class TrackerViewController: UICollectionViewController {
 
     // MARK: Properties
     
+    private let locationManager = LocationManager.shared
+    private var distance = Measurement(value: 0, unit: UnitLength.meters)
+    
     var manager : TrackerManager!
-    let locationManager = LocationManager.shared
-    var distance = Measurement(value: 0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
     var photos : [FlickrPhoto] = []
     
@@ -27,7 +28,7 @@ class TrackerViewController: UICollectionViewController {
         super.viewDidLoad()
         manager = TrackerManager(controller: self)
         manager.setupView()
-        manager.startWalk()
+        startWalk()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,12 +48,20 @@ class TrackerViewController: UICollectionViewController {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: Location
+    
+    private func startWalk() {
+        distance = Measurement(value: 0, unit: UnitLength.meters)
+        locationList.removeAll()
+        startLocationUpdates()
+    }
+
 }
 
 // MARK: UICollectionViewDataSource
 
 extension TrackerViewController {
-    
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -72,6 +81,15 @@ extension TrackerViewController {
 // MARK: Location Manager Delegate
 
 extension TrackerViewController: CLLocationManagerDelegate {
+    
+    private func startLocationUpdates() {
+        locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 50
+        locationManager.allowsBackgroundLocationUpdates = true
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

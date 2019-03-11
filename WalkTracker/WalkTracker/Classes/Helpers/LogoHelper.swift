@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogoHelper: NSObject {
+class LogoHelper {
 
     func setupLogo() -> UIImageView {
         let logo = UIImage(named: "logoIcon.png")

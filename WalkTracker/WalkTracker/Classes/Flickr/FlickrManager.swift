@@ -74,8 +74,6 @@ class FlickrManager {
                     return
                 }
                 
-                print(photosDictionary)
-                
                 guard let photosArray = photosDictionary["photo"] as? [[String: AnyObject]] else {
                     completion(Result.results(self.loadNoAvailablePhoto(searchURL: searchURL, index: index)))
                     return

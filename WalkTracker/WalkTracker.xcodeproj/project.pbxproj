@@ -12,7 +12,6 @@
 		4C6CC1672226F60500EEB94B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CC1662226F60500EEB94B /* Assets.xcassets */; };
 		4C6CC16A2226F60500EEB94B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CC1682226F60500EEB94B /* LaunchScreen.storyboard */; };
 		4C6CC1792226F83E00EEB94B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1782226F83E00EEB94B /* HomeViewController.swift */; };
-		4C6CC17B2226F87900EEB94B /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC17A2226F87900EEB94B /* HomeManager.swift */; };
 		4C6CC17D2226F8A100EEB94B /* LogoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */; };
 		4C6CC1812226F99A00EEB94B /* TrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1802226F99A00EEB94B /* TrackerManager.swift */; };
 		4C6CC1832226F9E400EEB94B /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */; };
@@ -34,7 +33,6 @@
 		4C6CC1692226F60500EEB94B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C6CC16B2226F60500EEB94B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C6CC1782226F83E00EEB94B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		4C6CC17A2226F87900EEB94B /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
 		4C6CC17C2226F8A100EEB94B /* LogoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
 		4C6CC1802226F99A00EEB94B /* TrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerManager.swift; sourceTree = "<group>"; };
 		4C6CC1822226F9E400EEB94B /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				4C6CC1782226F83E00EEB94B /* HomeViewController.swift */,
-				4C6CC17A2226F87900EEB94B /* HomeManager.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -249,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C6CC17B2226F87900EEB94B /* HomeManager.swift in Sources */,
 				4C6CC1932228037300EEB94B /* Result.swift in Sources */,
 				4C6CC1912228033E00EEB94B /* FlickrPhoto.swift in Sources */,
 				4C6CC18D222704AD00EEB94B /* FlickrManager.swift in Sources */,
