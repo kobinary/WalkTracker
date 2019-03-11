@@ -66,10 +66,6 @@ class FlickrPhoto: Equatable {
             }.resume()
     }
     
-    func loadNoPhotoAvaliable() {
-        
-    }
-    
     // MARK: - Equal
     
     static func ==(lhs: FlickrPhoto, rhs: FlickrPhoto) -> Bool {

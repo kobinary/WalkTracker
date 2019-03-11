@@ -30,7 +30,7 @@ class TrackerViewController: UICollectionViewController {
         startWalk()
     }
     
-    func setupView() {
+   private func setupView() {
         setupNavigationItems()
     }
     
@@ -68,7 +68,7 @@ class TrackerViewController: UICollectionViewController {
     // MARK: Photo Logic
     
     private func checkPhotoStatus(flickrPhoto: FlickrPhoto) {
-        if flickrPhoto.photoID != startedWalkIdentifier && photos[0].photoID != startedWalkIdentifier {
+        if flickrPhoto.photoID != nonPhotoIdentifier && photos[0].photoID != nonPhotoIdentifier {
             addNewPhoto(flickrPhoto: flickrPhoto)
         }
     }

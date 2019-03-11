@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 
+let nonPhotoIdentifier = "noPhotoIdentifier"
+
 class FlickrManager {
     
     func flickrURLFromParameters(lat: CLLocationDegrees, lon: CLLocationDegrees) -> URL {
@@ -108,8 +110,7 @@ class FlickrManager {
     // Return an NON avaliable Flickr Photo
     
     func loadNoAvailablePhoto(searchURL: URL, index: Int) -> FlickrPhoto {
-        let photoID = "noPhoto_" + "\(searchURL)_" + UUID().uuidString
-        let flickrPhoto = FlickrPhoto.init(photoID: photoID, imageURL: "", index: index)
+        let flickrPhoto = FlickrPhoto.init(photoID: nonPhotoIdentifier, imageURL: "", index: index)
         flickrPhoto.largeImage = UIImage(named: "noPhoto.png")
         return flickrPhoto
     }
