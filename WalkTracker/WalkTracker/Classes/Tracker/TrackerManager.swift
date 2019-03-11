@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 
+let startedWalkIdentifier = "walkStarted"
+
 class TrackerManager {
 
     // MARK: Properties
@@ -32,7 +34,7 @@ class TrackerManager {
     }
     
     func loadWalkStartedImage(completion: @escaping (FlickrPhoto) -> Void) {
-        completion(FlickrPhoto.init(photoID: "walkStarted", imageURL: "", index: 0, image: UIImage(named: "walkStarted.png")!))
+        completion(FlickrPhoto.init(photoID: startedWalkIdentifier, imageURL: "", index: 0, image: UIImage(named: "walkStarted.png")!))
     }
 
 }

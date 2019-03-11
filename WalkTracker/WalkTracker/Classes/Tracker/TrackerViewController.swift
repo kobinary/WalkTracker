@@ -64,7 +64,20 @@ class TrackerViewController: UICollectionViewController {
         locationList.removeAll()
         startLocationUpdates()
     }
-
+    
+    // MARK: Photo Logic
+    
+    private func checkPhotoStatus(flickrPhoto: FlickrPhoto) {
+        if flickrPhoto.photoID != startedWalkIdentifier && photos[0].photoID != startedWalkIdentifier {
+            addNewPhoto(flickrPhoto: flickrPhoto)
+        }
+    }
+    
+    private func addNewPhoto(flickrPhoto: FlickrPhoto) {
+        self.photos.append(flickrPhoto)
+        self.photos = self.photos.sorted(by: { $0.index > $1.index })
+        self.reloadContent()
+    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -137,9 +150,7 @@ extension TrackerViewController: CLLocationManagerDelegate {
 
                 if distance > Measurement(value: value, unit: UnitLength.meters) {
                     trackerManager.fetchPhotoByLocation(lat: newLocation.coordinate.latitude, lon:newLocation.coordinate.longitude, photos: self.photos) { (flickrPhoto) in
-                        self.photos.append(flickrPhoto)
-                        _ = self.photos.sorted(by: { $0.index > $1.index })
-                        self.reloadContent()
+                        self.checkPhotoStatus(flickrPhoto: flickrPhoto)
                     }
                 }
             }
